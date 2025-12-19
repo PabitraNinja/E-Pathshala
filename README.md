@@ -78,10 +78,11 @@ This repository contains the web portion (front-end | backend), but doesn't incl
 
 This project couldn't have been possible without the team
 
-- Hazem Hamada
-- Omar Hazem
-- Basil Essam
-- Eslam Genedy
+- Harshwadhan Fogla
+- Aditya Narayan Jena
+- Ayush Prashad
+- Pabitra Badamajhi
+- Abinash Behera
 
 [ref-login]: https://user-images.githubusercontent.com/30159212/211311673-909d5981-9e2d-485e-841c-5bd13fb79118.png
 [ref-courses-screen]: https://user-images.githubusercontent.com/30159212/211311843-ba385a5e-19dd-47f6-90dc-c112ef9391f4.png
