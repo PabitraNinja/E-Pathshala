@@ -68,12 +68,6 @@ This repository contains the web portion (front-end | backend), but doesn't incl
 | Grade Book Screen                                   | Course Settings Screen                  | 
 | ![Grade Book Screen][ref-grade-book-screen]         | ![Course Settings Screen][ref-course-settings-screen] |
 
-## Full Demo
-
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=uvtkwOpwAYU" target="_blank">
-  <img width=640px height=360px src="https://user-images.githubusercontent.com/30159212/211315771-ebdf99ba-fbf1-42d2-a2f8-c6fabf788040.png" alt="IMAGE ALT TEXT HERE" border="10"/>
-</a>
-
 ## Acknowledgements
 
 This project couldn't have been possible without the team
