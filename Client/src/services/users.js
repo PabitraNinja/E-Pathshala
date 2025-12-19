@@ -1,25 +1,23 @@
-import axios from 'axios'
+import api from './api'
 import { getAuthHeader } from './config'
 
-const baseURL = '/users'
-
-const register = async (credentials) =>{
-  const response = await axios.post(`${baseURL}/register` ,credentials ) ;
-  return response.data 
+const register = async (credentials) => {
+  const response = await api.post('/users/register', credentials)
+  return response.data
 }
 
 const login = async (credentials) => {
-  const response = await axios.post(`${baseURL}/login`, credentials)
+  const response = await api.post('/users/login', credentials)
   return response.data
 }
 
 const logout = async () => {
-  await axios.post(`${baseURL}/logout`, undefined, getAuthHeader())
+  await api.post('/users/logout', undefined, getAuthHeader())
 }
 
 const update = async (user) => {
-  const response = await axios.patch(
-    `${baseURL}/me`,
+  const response = await api.patch(
+    '/users/me',
     {
       name: user.name,
       email: user.email,
