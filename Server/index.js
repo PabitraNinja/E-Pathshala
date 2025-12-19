@@ -6,7 +6,7 @@ const cors = require('cors');
 const fileUpload = require('express-fileupload');
 const portfinder = require('portfinder');
 
-const connectDB = require('./config/database'); // <-- MongoDB Atlas connector
+const mongoose = require("mongoose"); // <-- MongoDB Atlas connector
 
 // Routes
 const user = require('./routes/user');
