@@ -37,18 +37,33 @@ db();
 /* =======================
    2️⃣ CORS (VERY IMPORTANT)
 ======================= */
+const allowedOrigins = [
+  "https://e-pathshala-jbs.vercel.app",
+  "https://e-pathshala-jbsf.vercel.app",
+  "https://e-pathshala-six.vercel.app"
+];
+
 app.use(
   cors({
-    origin: "https://e-pathshala-jbs.vercel.app",
+    origin: function (origin, callback) {
+      // allow requests with no origin (like Postman)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
   })
 );
 
+// Preflight
+app.options("*", cors());
 
-// Explicit preflight support
-app.options('*', cors());
 
 /* =======================
    3️⃣ MIDDLEWARES
