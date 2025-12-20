@@ -1,13 +1,18 @@
-import mongoose from "mongoose";
+// server/db.js
+const mongoose = require("mongoose");
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI);
-    console.log("MongoDB Atlas connected");
-  } catch (error) {
-    console.error("MongoDB connection failed:", error.message);
+    const dbURI = process.env.MONGODB_URI || "mongodb+srv://Pabitra37:Pabitra123@cluster0.0unawvl.mongodb.net/?appName=Cluster0";
+    await mongoose.connect(dbURI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log(`✅ MongoDB connected to ${dbURI}`);
+  } catch (err) {
+    console.error("❌ DB Connection Failed:", err.message);
     process.exit(1);
   }
 };
 
-export default connectDB;
+module.exports = connectDB;
