@@ -1,9 +1,9 @@
-GET  http://localhost:4000/deadlines HTTP/1.1
+GET https://e-pathshala-1wmr.onrender.com/deadlines
 Content-Type: application/json
-Authorization: {{$dotenv %LOGIN_RESTCLIENT_TOKEN}}
+Authorization: Bearer <JWT_TOKEN>
+
 
 ### calendar
-
-GET  http://localhost:4000/deadlines/calendar HTTP/1.1
+GET https://e-pathshala-1wmr.onrender.com/deadlines/calendar
 Content-Type: application/json
-Authorization: {{$dotenv %LOGIN_RESTCLIENT_TOKEN}}
+Authorization: Bearer <JWT_TOKEN>
