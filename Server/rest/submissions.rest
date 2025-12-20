@@ -1,90 +1,105 @@
-### get all
-GET  http://localhost:4000/60a65778348b1936c4257ba5/assessments/60b98b6a38130f39c046dc51/submissions HTTP/1.1
+### GET all assessments
+GET https://e-pathshala-1wmr.onrender.com/60a65778348b1936c4257ba5/assessments
 Content-Type: application/json
-# Authorization: {{$dotenv %LOGIN_RESTCLIENT_TOKEN}}
+Authorization: Bearer <JWT_TOKEN>
 
-
-### get oneSubmission
-GET  http://localhost:4000/60a65778348b1936c4257ba5/assessments/60b17e21d41e402a4c949f8c/submissions/60a3944f9219df36fc82ea60 HTTP/1.1
+### GET assignments only
+GET https://e-pathshala-1wmr.onrender.com/60a65778348b1936c4257ba5/assessments?filter=Assignment
 Content-Type: application/json
-Authorization: {{$dotenv %LOGIN_RESTCLIENT_TOKEN}}
+Authorization: Bearer <JWT_TOKEN>
 
-
-# submittedAt: { type: mongoose.SchemaTypes.Date }, lazm kol mara yt3mlo update
-### create Submission
-
-POST http://localhost:4000/60a65778348b1936c4257ba5/assessments/60b17e21d41e402a4c949f8c/submissions HTTP/1.1
+### GET exams only
+GET https://e-pathshala-1wmr.onrender.com/60a65778348b1936c4257ba5/assessments?filter=Exam
 Content-Type: application/json
-# Authorization: {{$dotenv %LOGIN_RESTCLIENT_TOKEN}}
+Authorization: Bearer <JWT_TOKEN>
 
-{     
-    "files": [],
-    "course": "60a65778348b1936c4257ba5",
-    "assessment": "60b17ba8ff090f3954c3bb5d",
-    "plagarismStatus": "processing",
-    "student": "608b4676e1eb3834d0efc089",
-    "answers": [
+### GET one assessment
+GET https://e-pathshala-1wmr.onrender.com/60a65778348b1936c4257ba5/assessments/60b3f72216e3030db02ad593
+Content-Type: application/json
+Authorization: Bearer <JWT_TOKEN>
+
+### CREATE EXAM (POST)
+POST https://e-pathshala-1wmr.onrender.com/60a65778348b1936c4257ba5/assessments
+Content-Type: application/json
+Authorization: Bearer <JWT_TOKEN>
+
+{
+  "type": "Exam",
+  "title": "test assessment",
+  "maxScore": 10,
+  "questionsType": "online",
+  "submissionType": "online",
+  "course": "60a65778348b1936c4257ba5",
+  "visiblity": "published",
+  "openAt": "2021-05-21T19:02:25.000Z",
+  "closeAt": "2021-05-21T20:01:25.000Z",
+  "weight": 0.2
+}
+
+### CREATE ASSIGNMENT (POST)
+POST https://e-pathshala-1wmr.onrender.com/60a65778348b1936c4257ba5/assessments
+Content-Type: application/json
+Authorization: Bearer <JWT_TOKEN>
+
+{
+  "type": "Assignment",
+  "title": "test assessment",
+  "maxScore": 10,
+  "questionsType": "online",
+  "submissionType": "online",
+  "course": "60a65778348b1936c4257ba5",
+  "visiblity": "published",
+  "dueDate": "2021-05-20T12:46:51.964Z",
+  "weight": 0.2,
+  "questions": [
     {
-      "originQuestion": "60b17ba8ff090f3954c3bb5b",
-      "studentAnswer": "choice a",
-      "score": 1
+      "type": "MCQ",
+      "question_number": 0,
+      "points": 5,
+      "question_text": "a question",
+      "auto_graded": true,
+      "choices": ["choice a", "choice b"],
+      "ans": "choice a"
+    },
+    {
+      "type": "Essay",
+      "question_number": 1,
+      "points": 5,
+      "question_text": "a question",
+      "auto_graded": true,
+      "text_match": true,
+      "keywords": [
+        { "key_word": "first keyword", "weight": 0.2 }
+      ],
+      "ans": "choice a"
     }
   ]
 }
 
-### update
-
-PUT http://localhost:4000/60a65778348b1936c4257ba5/assessments/60b996ba9fc3c142601ddf05/submissions/60a3944f9219df36fc82ea60 HTTP/1.1
+### DELETE one assessment
+DELETE https://e-pathshala-1wmr.onrender.com/60a65778348b1936c4257ba5/assessments/60c390675edd2535b8b8de03
 Content-Type: application/json
-Authorization: {{$dotenv %LOGIN_RESTCLIENT_TOKEN}}
+Authorization: Bearer <JWT_TOKEN>
 
-{     
-    "answers": [
-    {
-      "originQuestion": "60b98b6a38130f39c046dc4f",
-      "score": 5
-    },
-    {
-      "originQuestion": "60b98b6a38130f39c046dc50",
-      "score": 3
-    }
-  ]
-}
-
-### grade
-
-PUT http://localhost:4000/60a65778348b1936c4257ba5/assessments/60b98b6a38130f39c046dc51/submissions/608b4676e1eb3834d0efc089/grade HTTP/1.1
+### DELETE all assessments
+DELETE https://e-pathshala-1wmr.onrender.com/60a65778348b1936c4257ba5/assessments
 Content-Type: application/json
-Authorization: {{$dotenv %LOGIN_RESTCLIENT_TOKEN}}
+Authorization: Bearer <JWT_TOKEN>
 
-{     
-    "answers": [
-    {
-      "originQuestion": "60b98b6a38130f39c046dc4f",
-      "studentAnswer": "Washington",
-      "score": 1
-    },
-    {
-      "originQuestion": "60b98b6a38130f39c046dc50",
-      "studentAnswer": "1776",
-      "score": 0
-    }
-  ],
-  "score": 1
-}
-
-### delete
-
-DELETE http://localhost:4000/60a65778348b1936c4257ba5/assessments/60b11332dff2eb45647fe950/submissions/id HTTP/1.1
+### DELETE all questions
+DELETE https://e-pathshala-1wmr.onrender.com/60a65778348b1936c4257ba5/assessments/questions
 Content-Type: application/json
-Authorization: {{$dotenv %LOGIN_RESTCLIENT_TOKEN}}
+Authorization: Bearer <JWT_TOKEN>
 
-
-### delete all
-
-DELETE http://localhost:4000/60a65778348b1936c4257ba5/assessments/60b11332dff2eb45647fe950/submissions HTTP/1.1
+### CHECK PLAGIARISM
+GET https://e-pathshala-1wmr.onrender.com/60a65778348b1936c4257ba5/assessments/60cb8707f5ab2c14f8356a7d/check-plagiarism
 Content-Type: application/json
-Authorization: {{$dotenv %LOGIN_RESTCLIENT_TOKEN}}
+Authorization: Bearer <JWT_TOKEN>
+
+### AUTO GRADE
+GET https://e-pathshala-1wmr.onrender.com/60a65778348b1936c4257ba5/assessments/60b98b6a38130f39c046dc51/auto-grade
+Content-Type: application/json
+Authorization: Bearer <JWT_TOKEN>
 
 
 
