@@ -39,7 +39,7 @@ db();
 ======================= */
 app.use(
   cors({
-    origin: "https://e-pathshala-six.vercel.app",
+    "https://e-pathshala-jbs.vercel.app",
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
