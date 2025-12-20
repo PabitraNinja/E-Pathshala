@@ -50,24 +50,7 @@ app.use(express.static(publicDirectoryPath))
 
 app.use('/course-file', express.static('course-file'))
 
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://e-pathshala-six.vercel.app",
-  "https://e-pathshala-git-main-pabitranijas-projects.vercel.app"
-];
-
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-  })
-);
+app.use(cors())
 
 
 app.use(express.json())
