@@ -1,34 +1,32 @@
-### get all
-GET http://localhost:4000/courses/6071bc6237d90440749b0d0c/modules HTTP/1.1
+### GET all modules of a course
+GET https://e-pathshala-1wmr.onrender.com/courses/6071bc6237d90440749b0d0c/modules
 Content-Type: application/json
+Authorization: Bearer <JWT_TOKEN>
 
-
-### get module items for one module
-
-GET http://localhost:4000/courses/6071bc6237d90440749b0d0c/modules/607290a4835a88203427158d HTTP/1.1
+### GET module items for ONE module
+GET https://e-pathshala-1wmr.onrender.com/courses/6071bc6237d90440749b0d0c/modules/607290a4835a88203427158d
 Content-Type: application/json
+Authorization: Bearer <JWT_TOKEN>
 
-
-### create
-POST http://localhost:4000/courses/6071bc6237d90440749b0d0c/modules HTTP/1.1
+### CREATE module
+POST https://e-pathshala-1wmr.onrender.com/courses/6071bc6237d90440749b0d0c/modules
 Content-Type: application/json
-Authorization: {{$dotenv %LOGIN_RESTCLIENT_TOKEN}}
+Authorization: Bearer <JWT_TOKEN>
 
 {
-      "title": "Module 6"
+  "title": "Module 6"
 }
 
-
-### update
-PUT http://localhost:4000/courses/6071bc6237d90440749b0d0c/modules/607290a4835a88203427158d HTTP/1.1
+### UPDATE module
+PUT https://e-pathshala-1wmr.onrender.com/courses/6071bc6237d90440749b0d0c/modules/607290a4835a88203427158d
 Content-Type: application/json
-Authorization: {{$dotenv %LOGIN_RESTCLIENT_TOKEN}}
+Authorization: Bearer <JWT_TOKEN>
 
 {
-    "title": "Module 1"
+  "title": "Module 1"
 }
 
-### delete
-DELETE  http://localhost:4000/courses/6071bc6237d90440749b0d0c/modules/60728e6f2991c53e88e1b043 HTTP/1.1
+### DELETE module
+DELETE https://e-pathshala-1wmr.onrender.com/courses/6071bc6237d90440749b0d0c/modules/60728e6f2991c53e88e1b043
 Content-Type: application/json
-Authorization: {{$dotenv %LOGIN_RESTCLIENT_TOKEN}}
+Authorization: Bearer <JWT_TOKEN>
