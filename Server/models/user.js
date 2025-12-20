@@ -171,13 +171,17 @@ userSchema.methods.toJSON = function () {
 }
 
 userSchema.methods.generateAuthToken = async function () {
-  const user = this
-  const token = jwt.sign({ _id: user._id.toString() }, process.env.SECRET_KEY, {
-    expiresIn: 86400
-  })
+  const user = this;
 
-  return token
-}
+  const token = jwt.sign(
+    { _id: user._id.toString() },
+    process.env.JWT_SECRET,
+    { expiresIn: "1d" }
+  );
+
+  return token;
+};
+
 
 userSchema.statics.findByCredentials = async (email, password) => {
   const user = await User.findOne({ email })
