@@ -39,12 +39,13 @@ db();
 ======================= */
 app.use(
   cors({
-    "https://e-pathshala-jbs.vercel.app",
+    origin: "https://e-pathshala-jbs.vercel.app",
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
   })
 );
+
 
 // Explicit preflight support
 app.options('*', cors());
