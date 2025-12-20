@@ -1,5 +1,4 @@
-
 ### get all
-GET  http://localhost:4000/60a65778348b1936c4257ba5/grade-book-summary HTTP/1.1
+GET https://e-pathshala-1wmr.onrender.com/60a65778348b1936c4257ba5/grade-book-summary
 Content-Type: application/json
-Authorization: {{$dotenv %LOGIN_RESTCLIENT_TOKEN}}
+Authorization: Bearer <JWT_TOKEN>
