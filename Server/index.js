@@ -52,7 +52,7 @@ app.use('/course-file', express.static('course-file'))
 
 app.use(
   cors({
-    origin: "https://e-pathshala-six.vercel.app",
+    origin: [/\.vercel\.app$/],
     credentials: true,
   })
 );
